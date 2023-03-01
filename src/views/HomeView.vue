@@ -3,6 +3,13 @@
     <h1>Shop</h1>
   </header>
   <section class="employee-content">
+    <div class="container">
+    <button class="btn btn-primary" @click="typeManage('necklace')">สร้อยคอ</button>
+
+    <button class="btn btn-primary" @click="typeManage('ring')">แหวน</button>
+    <button class="btn btn-primary" @click="typeManage('bangle')">กำไล</button>
+  </div>
+
     <h2>ข้อมูลสินค้า</h2>
     
     <ListProduct />
@@ -17,6 +24,11 @@ export default {
   name: 'HomeView',
   components: {
     ListProduct
+  },
+  methods:{
+    typeManage(type){
+      console.log(type)
+    },
   }
 }
 </script>
@@ -38,6 +50,7 @@ header {
   background-color: orange;
   color: green;
   text-align: center;
+  text-shadow: #8f0 0.1em 0.1em 0.1em;
 }
 .employee-content {
   box-shadow: 0 2px 8px black;
@@ -47,12 +60,17 @@ header {
   text-align: center;
 }
 .employee-content h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   border-bottom: 4px solid #ccc;
   font-weight: bold;
   color: purple;
   margin: 0 0 0.5rem 0;
 }
+  button{
+    width: 17vw;
+    margin: 10px;
+    border-style: solid;
+  }
 
 
 </style>
