@@ -27,6 +27,8 @@
 </template>
 
 <script>
+//  import product from "../stores/product.json";
+
 import ProductComponent from './ProductComponent.vue'
 
 export default {

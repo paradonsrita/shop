@@ -1,77 +1,87 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 
+//import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
+
+import { useUsarStore } from './stores/user';
+const { theme } = storeToRefs(useUsarStore());
+const { clickTheme } = useUsarStore()
+
 </script>
-
+<script>
+  export default {
+    data(){
+      return{
+        iconProfile: false
+      }
+    },
+    methods: {
+      showProfile() {
+        this.iconProfile = !this.iconProfile;
+        console.log(this.iconProfile);
+      }
+    }
+  }
+</script>
 <template>
+  <v-app :theme="theme">
+    <v-app-bar>
+      <v-btn href="/">
+      <v-app-bar-title>My shop</v-app-bar-title>
+    </v-btn>
+      <v-btn>
+      <RouterLink to="/">Home</RouterLink>
+    </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn href="/about">
+        About
+        
+      </v-btn>
+      
+      <v-btn @click="clickTheme"
+        :prepend-icon="theme === 'light'
+         ? 'mdi-weather-sunny' : 'mdi-weather-night'">
+        Click me
+      </v-btn>
+      
+      
+      
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-      </nav>
+      <v-menu transition="scroll-y-transition">
+      <template v-slot:activator="{ props }">
+        <v-btn icon
+          color="secondary"
+          class="ma-2"
+          v-bind="props"
+        >
+        <v-avatar>
+          <v-img 
+            src="https://m.media-amazon.com/images/I/51T9B5HKY4L._AC_UF894,1000_QL80_.jpg"
+          />
+        </v-avatar>
 
-  <RouterView />
+        </v-btn>
+      </template>
+      <v-list>
+       <!-- <v-list-item
+          v-for="n in 5"
+          :key="n"
+          link
+        >
+          <v-list-item-title v-text="'Item ' + n"></v-list-item-title>
+        </v-list-item>-->
+        <v-list-item href="/login">
+          <v-list-item-title v-text="'sign in'"></v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
+
+    
+    </v-app-bar>
+    <RouterView />
+  </v-app>
+  
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>

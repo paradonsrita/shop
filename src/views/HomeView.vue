@@ -1,4 +1,8 @@
 <template>
+  <v-main>
+    <v-container fluid>
+
+    
   <header>
     <h1>Shop</h1>
   </header>
@@ -9,21 +13,27 @@
     <button class="btn btn-primary" @click="typeManage('ring')">แหวน</button>
     <button class="btn btn-primary" @click="typeManage('bangle')">กำไล</button>
   </div>
-
+  <!--
+    <AsD/>   -->
     <h2>ข้อมูลสินค้า</h2>
     
     <ListProduct />
   
   </section>
+</v-container>
+  </v-main>
+
 </template>
 
 <script>
 import ListProduct from '../components/ListProduct.vue'
+//import AsD from '../components/AsD.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    ListProduct
+    ListProduct,
+  //  AsD
   },
   methods:{
     typeManage(type){
@@ -67,9 +77,11 @@ header {
   margin: 0 0 0.5rem 0;
 }
   button{
-    width: 17vw;
+    width: 25vw;
+    height: 5vw;
     margin: 10px;
-    border-style: solid;
+    font-size: 1.4rem;
+    text-shadow: #000 0.15em 0.15em 0.15em;
   }
 
 

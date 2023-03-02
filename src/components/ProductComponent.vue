@@ -116,7 +116,7 @@ export default {
     margin: 15px;
     position: fixed;
     left: 40.5%;
-    top:3%;
+    top:8%;
     width: 57vw;
     padding: 1rem;
     color: #fff;
@@ -155,11 +155,12 @@ button{
   height: 50px;
   width: 120px;
   font-size: large;
+  color:#00f;
+  text-shadow: #fff 0.05em 0.1em 0.1em;
   font-family: fantasy;
 }
 .buy-button{
   background : linear-gradient(to bottom right, #bff, #7f7);
- 
   border-color: #0af;
 }
 .cancel-button{
