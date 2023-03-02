@@ -74,6 +74,9 @@ const { clickTheme } = useUsarStore()
         <v-list-item href="/login">
           <v-list-item-title v-text="'sign in'"></v-list-item-title>
         </v-list-item>
+        <v-list-item href="/mycart">
+          <v-list-item-title v-text="'cart'"></v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
 
