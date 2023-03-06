@@ -2,20 +2,16 @@
   <v-main>
     <v-container fluid>
 
+
+
     
   <header>
     <h1>Shop</h1>
   </header>
   <section class="employee-content">
-    <div class="container">
-    <button class="btn btn-primary" @click="typeManage('necklace')">สร้อยคอ</button>
-
-    <button class="btn btn-primary" @click="typeManage('ring')">แหวน</button>
-    <button class="btn btn-primary" @click="typeManage('bangle')">กำไล</button>
-  </div>
+    
   <!--
     <AsD/>   -->
-    <h2>ข้อมูลสินค้า</h2>
     
     <ListProduct />
   
@@ -76,13 +72,6 @@ header {
   color: purple;
   margin: 0 0 0.5rem 0;
 }
-  button{
-    width: 25vw;
-    height: 5vw;
-    margin: 10px;
-    font-size: 1.4rem;
-    text-shadow: #000 0.15em 0.15em 0.15em;
-  }
 
 
 </style>

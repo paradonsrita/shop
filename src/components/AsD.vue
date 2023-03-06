@@ -3,6 +3,7 @@
     <div style="padding: 30px; background-color: yellow;"
     @click="counter1Store.increment">
   {{ counter1Store.count }}
+
 </div>
 </template>
 

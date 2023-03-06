@@ -63,6 +63,11 @@
               <input type="text" class="form-control" id="address2">
             </div>
 
+            <div class="col-12">
+              <label for="address2" class="form-label">Phone Number <span class="text-muted"></span></label>
+              <input type="text" class="form-control" id="address2">
+            </div>
+
             
 
             
@@ -104,7 +109,18 @@
 
 <script>
 export default {
+  data(){
+    return{
+      app:{
+        username:"",
+        password:"",
+        email:"",
+        phoneNumber:"",
 
+
+      }
+    }
+  }
 }
 </script>
 

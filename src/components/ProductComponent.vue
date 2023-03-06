@@ -3,6 +3,9 @@
     <img :src="picture" class="card-img-top" ref="imageURL"/> 
     <div class="card-body">
   <h4 class="card-title"> {{ name }} </h4>
+  <hr>
+  <h4 class="card-title"> ราคา : {{ price }} </h4>
+  <hr>
 </div>
   <button type="button" @click="showData(id)" class="buy-button" >{{ isvisible ? "hit" : "show" }}</button>&nbsp;
   
@@ -25,7 +28,7 @@
       <h2>ราคา: {{ price }} บาท</h2>
       <div>
         <button type="button" class="cancel-button" @click="showData(id)">cancel</button>
-      <button type="button" class="buy-button" >Buy</button>
+      <button type="button" class="buy-button" @click="buyProduct(id)">Buy</button>
     </div>
     </div>
     </div>
@@ -34,7 +37,7 @@
 </li>
 </template>
 
-<script>
+<script >
 
 export default {
     name:"ProductComponent",
@@ -43,6 +46,11 @@ export default {
       showData(id) {
         this.$emit("showEMP", id)
       },
+      buyProduct(id){
+        console.log("buy ID " + id)
+        this.$emit("incart", id)
+
+      }
     },
 
     props:{
@@ -115,7 +123,7 @@ export default {
   .boxShow{
     margin: 15px;
     position: fixed;
-    left: 40.5%;
+    left: 20.5%;
     top:8%;
     width: 57vw;
     padding: 1rem;
